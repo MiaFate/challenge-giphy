@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
-
+import React, { useState } from 'react';
 
 
 function SearchBox({ placeholder }) {
+    
     const [text, setText] = useState("");
-
     const handleChange = (e) => {
         const input = e.target.value.toLowerCase();
         setText(input);
