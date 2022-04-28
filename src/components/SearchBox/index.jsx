@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import searchGifs from '../../helpers/fetchs';
 
-
-function SearchBox({ placeholder }) {
+function SearchBox({ placeholder, setData }) {
     
     const [text, setText] = useState("");
     const handleChange = (e) => {
@@ -12,23 +12,13 @@ function SearchBox({ placeholder }) {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const gifs = await fetchGifs(text);
-            console.log(gifs);
+            const gifs = await searchGifs(text);
+            setData(gifs);
         } catch (error) {
             console.log(error.message)
         }
     }
 
-    async function fetchGifs(query) {
-        try {
-            const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_APIKEY}&q=${query}&limit=25&offset=0&rating=g&lang=es`);
-            const { data } = await response.json();
-            return await data;
-        } catch (error) {
-            console.log(error.message);
-        }
-
-    }
     return (
         <form id='searchBox' onSubmit={handleSubmit}>
             <button><i className="bi bi-search-heart"></i></button>
