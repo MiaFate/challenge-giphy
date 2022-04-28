@@ -19,10 +19,10 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <>
       <SearchBox placeholder={"Search GIPHY"} setData={setData} />
       <Cards data={data} />
-    </div>
+    </>
   );
 }
 
