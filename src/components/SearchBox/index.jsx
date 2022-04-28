@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import searchGifs from '../../helpers/fetchs';
 
 function SearchBox({ placeholder, setData }) {
-    
+
     const [text, setText] = useState("");
     const handleChange = (e) => {
         const input = e.target.value.toLowerCase();
@@ -20,10 +20,12 @@ function SearchBox({ placeholder, setData }) {
     }
 
     return (
-        <form id='searchBox' onSubmit={handleSubmit}>
-            <button><i className="bi bi-search-heart"></i></button>
-            <input type="text" id="searchBox" placeholder={placeholder} onChange={handleChange} value={text} ></input>
-        </form>
+        <div id='searchBox'>
+            <form onSubmit={handleSubmit}>
+                <button><i className="bi bi-search-heart"></i></button>
+                <input type="text" id="searchBox" placeholder={placeholder} onChange={handleChange} value={text} ></input>
+            </form>
+        </div>
     )
 }
 

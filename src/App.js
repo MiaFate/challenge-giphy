@@ -20,6 +20,7 @@ function App() {
 
   return (
     <>
+      <h1>Giphy Challenge ADV JS Study Group</h1>
       <SearchBox placeholder={"Search GIPHY"} setData={setData} />
       <Cards data={data} />
     </>
