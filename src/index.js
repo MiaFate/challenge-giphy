@@ -5,13 +5,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 // 1. import `ChakraProvider` component
-import { ChakraProvider } from '@chakra-ui/react'
+import { Box, ChakraProvider } from '@chakra-ui/react'
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
   <ChakraProvider tab="home">
-    <App/>
+    <Box bg='#fbe3f8' >
+      <App />
+    </Box>
   </ChakraProvider>
 );
 

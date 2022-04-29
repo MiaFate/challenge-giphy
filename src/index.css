@@ -5,67 +5,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #ffd1f9;
+  /* background-color: #ffd1f9; */
+  background-color: #fbe3f8;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-h1{
+ h1{
   font-size: 2em;
   font-weight: bold;
   text-align: center;
-  background-color: #61dafb;
-  color: white;
-}
-#searchBox{
-  width: 100%;
-  display: flex;
- justify-content: center;
- 
-
+  /* background-color: #61dafb; */
+  color: #00baee;
   
 }
-#searchBox input{
-  width: 300px;
-  height: 40px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding: 0 10px;
-  font-size: 16px;
-  outline: none;
-}
-#searchBox button{
-  width: 100px;
-  height: 40px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding: 0 10px;
-  font-size: 16px;
-  outline: none;
-  background-color: #61dafb;
-  color: #fff;
-  float: right;
-}
-.cards{
-  display: grid;
-  grid-template-columns: auto auto auto auto; 
-  justify-content: center;
-  column-gap: 10px;
-  row-gap: 10px;
-  margin: 10px;
-
+#formSearch{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .landscape{
-  align-self: center;
-  justify-self: center;
   height: auto;
   width: 267px;
 }
 .portrait{
-  align-self: center;
-  justify-self: center;
   height: auto;
   width: 220px;
 }

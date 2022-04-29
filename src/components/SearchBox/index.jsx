@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import searchGifs from '../../helpers/fetchs';
+import { Stack, IconButton, Input } from '@chakra-ui/react'
 
 function SearchBox({ placeholder, setData }) {
 
@@ -20,12 +21,12 @@ function SearchBox({ placeholder, setData }) {
     }
 
     return (
-        <div id='searchBox'>
-            <form onSubmit={handleSubmit}>
-                <button><i className="bi bi-search-heart"></i></button>
-                <input type="text" id="searchBox" placeholder={placeholder} onChange={handleChange} value={text} ></input>
-            </form>
-        </div>
+        <form id="formSearch" onSubmit={handleSubmit}>
+            <Stack direction='row' justify='center'>
+                <IconButton aria-label='Search Gifs' colorScheme='cyan' icon={<i className="bi bi-search-heart"></i>}></IconButton>
+                <Input width='auto' type="text" id="searchBox" placeholder={placeholder} onChange={handleChange} value={text} ></Input>
+            </Stack>
+        </form>
     )
 }
 
