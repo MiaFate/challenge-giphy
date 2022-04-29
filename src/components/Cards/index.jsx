@@ -1,12 +1,12 @@
 import React from 'react'
 import Card from '../Card'
-const Cards = ({ data }) => {
-  
+const Cards = ({ data: gifData }) => {
+
   return (
     <div className="cards">
-    {data?data.map(gif => (
-        <Card gif={gif} key={gif.id}/>
-        )):""}
+      {gifData ? gifData.map(gif => (
+        <Card gif={gif} key={gif.id} />
+      )) : ""}
     </div>
   )
 }

@@ -3,7 +3,7 @@ import SearchBox from "./components/SearchBox";
 import Cards from "./components/Cards";
 import { trendingGifs } from './helpers/fetchs'
 function App() {
-  const [data, setData] = useState('');
+  const [gifData, setGifData] = useState('');
 
   useEffect(() => {
     initialSearch();
@@ -12,7 +12,7 @@ function App() {
   const initialSearch = async () => {
     try {
       const gifs = await trendingGifs();
-      setData(gifs);
+      setGifData(gifs);
     } catch (error) {
       console.log(error);
     }
@@ -21,8 +21,8 @@ function App() {
   return (
     <>
       <h1>Giphy Challenge ADV JS Study Group</h1>
-      <SearchBox placeholder={"Search GIPHY"} setData={setData} />
-      <Cards data={data} />
+      <SearchBox placeholder={"Search GIPHY"} setData={setGifData} />
+      <Cards data={gifData} />
     </>
   );
 }
