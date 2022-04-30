@@ -10,8 +10,8 @@ import { Box, ChakraProvider } from '@chakra-ui/react';
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
+  <ChakraProvider tab="home">
   <BrowserRouter>
-    <ChakraProvider tab="home">
       <Box bg='#fbe3f8' width={'100vw'} >
         <Routes>
           <Route exact path="/" element={<App />} />
@@ -21,8 +21,8 @@ root.render(
             />
         </Routes>
       </Box>
-    </ChakraProvider>
   </BrowserRouter>
+  </ChakraProvider>
 );
 
 reportWebVitals();
