@@ -5,10 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: #ffd1f9; */
-  background-color: #fbe3f8;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -17,9 +14,7 @@ code {
   font-size: 2em;
   font-weight: bold;
   text-align: center;
-  /* background-color: #61dafb; */
   color: #00baee;
-  
 }
 #formSearch{
   margin-top: 1rem;

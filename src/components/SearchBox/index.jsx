@@ -5,6 +5,7 @@ import { Stack, IconButton, Input } from '@chakra-ui/react'
 function SearchBox({ placeholder, setData, setIsLoading }) {
 
     const [text, setText] = useState("");
+    
     const handleChange = (e) => {
         const input = e.target.value.toLowerCase();
         setText(input);
