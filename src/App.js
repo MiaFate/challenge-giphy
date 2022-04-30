@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import SearchBox from "./components/SearchBox";
 import Cards from "./components/Cards";
-import { trendingGifs } from './helpers/fetchs'
-import { Box, CircularProgress, CircularProgressLabel, Flex } from '@chakra-ui/react'
+import { trendingGifs } from './helpers/fetchs';
+import { Box, CircularProgress, CircularProgressLabel, Flex } from '@chakra-ui/react';
 
 function App() {
   const [gifData, setGifData] = useState('');
@@ -20,7 +20,7 @@ function App() {
       setIsLoading(false);
     } catch (error) {
       console.log(error);
-    }
+    };
   };
 
   return (
@@ -40,6 +40,6 @@ function App() {
       </Flex>
     </>
   );
-}
+};
 
 export default App;

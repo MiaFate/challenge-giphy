@@ -1,11 +1,11 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Routes, Route, } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import Detail from './components/Detail';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route, } from 'react-router-dom';
-import { Box, ChakraProvider } from '@chakra-ui/react'
+import { Box, ChakraProvider } from '@chakra-ui/react';
 
 const container = document.getElementById('root');
 const root = createRoot(container);

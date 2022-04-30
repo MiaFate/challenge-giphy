@@ -11,11 +11,10 @@ async function searchGifs(query) {
                 limit: 25,
                 offset: 0,
                 rating: 'g',
-                lang: 'es'
+                lang: 'es',
             },
             responseType: 'json',
         });
-
         return response;
     } catch (error) {
         console.log(error.message);
@@ -30,7 +29,7 @@ async function trendingGifs() {
                 api_key: process.env.REACT_APP_APIKEY,
                 limit: 25,
                 rating: 'g',
-                lang: 'es'
+                lang: 'es',
             },
             responseType: 'json',
         });
