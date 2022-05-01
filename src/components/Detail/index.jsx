@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import { getGifById } from '../../helpers/fetchs';
-import { Box, CircularProgress, CircularProgressLabel } from '@chakra-ui/react';
+import Loader from '../Loader';
 
 const Detail = () => {
     const { state } = useLocation();
@@ -33,11 +33,7 @@ const Detail = () => {
 
     if (isLoading) {
         return (
-            <Box height={'100vh'}>
-                <CircularProgress isIndeterminate mt={'10rem'} size='100px' color='pink'>
-                    <CircularProgressLabel>Loading...</CircularProgressLabel>
-                </CircularProgress>
-            </Box>
+            <Loader/>
         )
     }
     return (
