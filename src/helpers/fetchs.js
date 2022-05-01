@@ -18,8 +18,8 @@ async function searchGifs(query) {
         return response;
     } catch (error) {
         console.log(error.message);
-    };
-};
+    }
+}
 async function trendingGifs() {
     try {
         const { data: { data: response } } = await axios({
@@ -37,10 +37,26 @@ async function trendingGifs() {
         return response;
     } catch (error) {
         console.log(error.message);
-    };
-};
+    }
+}
+async function getGifById(id) {
+    try {
+        const { data: { data: response } } = await axios({
+            method: 'get',
+            url: `https://api.giphy.com/v1/gifs/${id}`,
+            params: {
+                api_key: process.env.REACT_APP_APIKEY,
+            },
+            responseType: 'json',
+        });
+        return response;
+    } catch (error) {
+        console.log(error.message);
+    }
+}
 
 export {
     searchGifs as default,
     trendingGifs,
+    getGifById,
 };

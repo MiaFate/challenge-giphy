@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import searchGifs from '../../helpers/fetchs';
 import { Stack, IconButton, Input } from '@chakra-ui/react';
 
-function SearchBox({ placeholder, setData, setIsLoading }) {
+function SearchBox({ placeholder, onSubmit }) {
 
     const [text, setText] = useState("");
 
@@ -10,17 +9,9 @@ function SearchBox({ placeholder, setData, setIsLoading }) {
         const input = e.target.value.toLowerCase();
         setText(input);
     };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        try {
-            setIsLoading(true);
-            const gifs = await searchGifs(text);
-            setData(gifs);
-            setIsLoading(false);
-        } catch (error) {
-            console.log(error.message)
-        };
+    const handleSubmit= (e) => {
+        e.preventDefault();
+        onSubmit(text);
     };
 
     return (
@@ -31,6 +22,6 @@ function SearchBox({ placeholder, setData, setIsLoading }) {
             </form>
         </Stack>
     )
-};
+}
 
 export default SearchBox;
