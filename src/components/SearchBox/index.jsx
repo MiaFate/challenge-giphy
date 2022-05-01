@@ -17,7 +17,7 @@ function SearchBox({ placeholder, onSubmit }) {
     return (
         <Stack direction='row' justify='center'>
             <form id="formSearch" onSubmit={handleSubmit}>
-                <IconButton type="submit" aria-label='Search Gifs' colorScheme='cyan' icon={<i className="bi bi-search-heart"></i>}></IconButton>
+                <IconButton type="submit" aria-label='Search Gifs' bg={'pink.400'} _hover={{ bg: "cyan.200" }} icon={<i className="bi bi-search-heart"></i>}></IconButton>
                 <Input width='auto' type="text" id="searchBox" placeholder={placeholder} onChange={handleChange} value={text} ></Input>
             </form>
         </Stack>

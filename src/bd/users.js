@@ -1,4 +1,4 @@
-[
+const users=[
     {
         "username": "admin",
         "password": "admin1236"
@@ -35,6 +35,7 @@
         "username": "dumbledore",
         "password": "dumbledore1236"
     }
-]
+];
+export default users;
 
 

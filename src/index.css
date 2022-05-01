@@ -19,7 +19,7 @@ code {
   font-size: 2em;
   font-weight: bold;
   text-align: center;
-  color: #00baee;
+  /* color: #00baee; */
 }
 #formSearch{
   margin-top: 1rem;

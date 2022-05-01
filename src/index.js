@@ -7,24 +7,25 @@ import Detail from './components/Detail';
 import Login from './components/Login';
 import reportWebVitals from './reportWebVitals';
 import { Box, ChakraProvider } from '@chakra-ui/react';
-
 import { ColorModeScript } from '@chakra-ui/react'
+import theme from './theme'
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
-  <ChakraProvider tab="home">
+  <ChakraProvider theme={theme} tab="home">
     <ColorModeScript initialColorMode={theme.config.initialColorMode} />
     <BrowserRouter>
       {/* width={'100vw'} */}
-      <Box bg='#fbe3f8'  >
+      {/* bg='#fbe3f8'  */}
+      <Box  >
         <Routes>
           <Route exact path="/" element={<Login />} />
+          <Route path="/home" element={<App />} />
           <Route
             path={`/detail/:id`}
             element={<Detail />}
           />
-          <Route path="/home" element={<App />} />
         </Routes>
       </Box>
     </BrowserRouter>
