@@ -1,60 +1,54 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-import { VStack, Center, Button, Input } from "@chakra-ui/react";
+import { VStack, Center, Button, Input, FormControl, FormLabel, FormErrorMessage, FormErrorIcon, InputRightElement } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import users from "../../bd/users";
 
 const LoginForm = () => {
-    const [datos, setDatos] = useState({});
-    const { register, handleSubmit, formState: { errors } } = useForm({defaultValues: {username:"", password:""}});
     const navigate = useNavigate();
+    const { register, handleSubmit, formState: { errors } } = useForm({ defaultValues: { username: "", password: "" } });
 
     const onSubmit = (data) => {
-        setDatos(data);
-        const found = checkUser(data.username, data.password);
-        redirect(found);
+        const { username, password } = data;
+        const isFound = findUser(username, password);
+        mustRedirect(isFound);
     };
-    console.log(datos);
-    const checkUser = (usuario, contraseña) => {
-        const userFound =  users.find(user => user.username === usuario && user.password === contraseña);
+
+    const findUser = (usuario, contraseña) => {
+        const userFound = users.find(user => user.username === usuario && user.password === contraseña);
         return Boolean(userFound);
     };
-    const redirect = (found) => {
+
+    const mustRedirect = (found) => {
         if (found) {
             localStorage.setItem("logged", true);
             navigate("/home");
-        }else{
+        } else {
             alert("Usuario o contraseña incorrectos");
         }
     };
 
-
-    
     return (
-        <Center mt={8} spacing="3px" margin="auto"  >
+        <Center w='100vw' h='100vh'>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <VStack textAlign={"center"} align="center" justify={"center"} mt={8} spacing="3px">
-                    
-                    <Input type="text" placeholder="Usuario" {...register("username", { required: "Ingrese su nombre de usuario" })} />
-                    {errors.username && <p>{errors.username.message}</p>}
-                    <Input type="password" placeholder="Contraseña" {...register("password", { required: "ingrese su contraseña" })} />
-                    {errors.password && <p>{errors.password.message}</p>}
-                    <Button
-                        borderRadius="md"
-                        //bg="cyan.600"
-                        //bg={"brand"}
-                        bg="pink.400"
-                        _hover={{ bg: "cyan.200" }}
-                        variant="ghost"
-                        type="submit"
-                    >
-                    Submit
+                <VStack textAlign={"center"}  mt={8} spacing="20px">
+                    <FormControl id="usuario" isInvalid={errors.username}>
+                        <FormLabel htmlFor="usuario">Usuario</FormLabel>
+                        <Input type="text"  placeholder="Usuario" {...register("username", { required: "Ingrese su nombre de usuario" })} />
+                        {errors.username && <> <InputRightElement><FormErrorIcon /></InputRightElement><FormErrorMessage>{errors.username.message}</FormErrorMessage> </>}
+                    </FormControl>
+                    <FormControl id="contraseña" isInvalid={errors.password}>
+                        <FormLabel htmlFor="contraseña">Contraseña</FormLabel>
+                        <Input type="password" placeholder="Contraseña" {...register("password", { required: "Ingrese su contraseña" })} />
+                        {errors.password && <> <InputRightElement><FormErrorIcon /></InputRightElement><FormErrorMessage>{errors.password.message}</FormErrorMessage> </>}
+                    </FormControl>
+                    <Button type="submit" bg="pink.400" mt={5} _hover={{ bg: "cyan.400" }}>
+                        Ingresar
                     </Button>
                 </VStack>
             </form>
         </Center>
-    )
+    );
 };
 
 export default LoginForm;

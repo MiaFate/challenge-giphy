@@ -1,14 +1,22 @@
 import React from 'react';
-import{Box} from '@chakra-ui/react';
+//import{Container} from '@chakra-ui/react';
 import LoginForm from '../LoginForm';
 
 const Login = () => {
   return (
-      <Box>
+      
+        <LoginForm />
+      
+  );
+};
+
+export default Login;
+
+/*       <Box width="100vw" height="100vh" direction='column' justifyContent="center">
         <h1>Login</h1>
-        <LoginForm/>
+        <LoginForm/> 
       </Box>
   )
 }
 
-export default Login;
+export default Login; */
