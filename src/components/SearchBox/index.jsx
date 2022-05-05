@@ -13,7 +13,7 @@ function SearchBox({ placeholder, onSubmit }) {
         e.preventDefault();
         onSubmit(text);
     };
-
+    
     return (
         <Stack direction='row' justify='center'>
             <form id="formSearch" onSubmit={handleSubmit}>
