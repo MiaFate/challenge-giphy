@@ -1,4 +1,14 @@
 const axios = require('axios');
+import useSWR from 'swr';
+
+function useGifs(query) {
+    //const url = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=${query}&limit=25&offset=0&rating=G&lang=en`;
+    const { response, error } = useSWR(query, searchGifs, { suspense: true });
+    console.log(response, error)
+    return {
+        response:response,
+        isError:error};
+}
 
 async function searchGifs(query) {
     try {
@@ -59,4 +69,5 @@ export {
     searchGifs as default,
     trendingGifs,
     getGifById,
+    useGifs
 };
