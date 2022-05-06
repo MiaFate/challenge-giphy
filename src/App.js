@@ -24,14 +24,14 @@ function App() {
     }
   }, []);
 
-/*   const initialSearch = async () => {
-    try {
-      const gifs = await trendingGifs();
-      setGifData(gifs);
-    } catch (error) {
-      console.log(error);
-    }
-  }; */
+  /*   const initialSearch = async () => {
+      try {
+        const gifs = await trendingGifs();
+        setGifData(gifs);
+      } catch (error) {
+        console.log(error);
+      }
+    }; */
   /*  const handleSearchGifs = async (text) => {
       const gifs = await searchGifs(text);
        console.log(text)
@@ -53,22 +53,21 @@ function App() {
       <SearchBox placeholder={"Search GIPHY"} setText={setText} />
       <Flex direction='column' align='center'>
         <ErrorBoundary FallbackComponent={ErrorFallback}>
-          <Suspense fallback={<Loader/>}>
-          <SWRConfig
-          value={{
-            fetcher: (...args) =>
-              fetch(...args).then((res) => {
-                if (res.ok) {
-                  return res.json();
-                } else {
-                  throw new Error("Fetch failed");
-                }
-              }),
-          }}
-        >
-        
-          <Cards query={text} />
-          </SWRConfig>
+          <Suspense fallback={<Loader />}>
+            <SWRConfig
+              value={{
+                fetcher: (...args) =>
+                  fetch(...args).then((res) => {
+                    if (res.ok) {
+                      return res.json();
+                    } else {
+                      throw new Error("Fetch failed");
+                    }
+                  }),
+              }}
+            >
+              <Cards query={text} />
+            </SWRConfig>
           </Suspense>
         </ErrorBoundary>
       </Flex>
