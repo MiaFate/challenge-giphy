@@ -14,6 +14,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
+
 const ErrorFallback = () => {
   return (
     <Flex justifyContent="center" alignItems="center" height="100vh">
