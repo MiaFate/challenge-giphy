@@ -1,13 +1,13 @@
 import React from 'react'
-import { Box, CircularProgress, CircularProgressLabel } from '@chakra-ui/react';
+import { Box, Center, CircularProgress} from '@chakra-ui/react';
 
 const Loader = () => {
     return (
-        <Box height={'100vh'}>
-            <CircularProgress isIndeterminate mt={'10rem'} size='100px' color='pink'>
-                <CircularProgressLabel>Loading...</CircularProgressLabel>
-            </CircularProgress>
+        <Center>
+            <Box height={'100vh'}>
+            <CircularProgress role='progressbar' isIndeterminate mt={'10rem'} size='100px' color='pink'/>
         </Box>
+        </Center>
     )
 }
 

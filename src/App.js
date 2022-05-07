@@ -1,8 +1,7 @@
-import { useState, useEffect, Fragment, lazy, Suspense } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import SearchBox from "./components/SearchBox";
 const Cards = lazy(() => import("./components/Cards"));
 import Loader from "./components/Loader";
-//import { trendingGifs } from './helpers/fetchs';
 import { Flex } from '@chakra-ui/react';
 import { useNavigate } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
@@ -11,9 +10,7 @@ import { SWRConfig } from "swr";
 
 function App() {
   const [text, setText] = useState("");
-  //const [gifData, setGifData] = useState([]);
   const navigate = useNavigate();
-  //const {data} = useSWR(url, searchGifs,{suspense: true});
 
   useEffect(() => {
     if (localStorage.getItem("logged") === "true") {
@@ -24,20 +21,6 @@ function App() {
     }
   }, []);
 
-  /*   const initialSearch = async () => {
-      try {
-        const gifs = await trendingGifs();
-        setGifData(gifs);
-      } catch (error) {
-        console.log(error);
-      }
-    }; */
-  /*  const handleSearchGifs = async (text) => {
-      const gifs = await searchGifs(text);
-       console.log(text)
-       setGifData(gifs);
-       error=>handleError(error)  
-   }; */
   const ErrorFallback = ({ error }) => {
     console.log(error)
     return (

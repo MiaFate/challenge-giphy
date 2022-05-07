@@ -18,7 +18,6 @@ const Cards = ({ query: search }) => {
   return (
 
     <Grid templateColumns='repeat(4, 1fr)' gap={3} id="cards" ml={'2rem'} mr={'2rem'}>
-      {console.log("render")}
       {data.map(gif => (
         <Card gif={gif} key={gif.id} />
       ))}
