@@ -66,6 +66,7 @@ function App() {
                   }),
               }}
             >
+            {console.log("app")}
               <Cards query={text} />
             </SWRConfig>
           </Suspense>
