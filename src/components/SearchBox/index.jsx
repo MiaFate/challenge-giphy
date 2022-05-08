@@ -1,8 +1,9 @@
 import React,{useState} from 'react';
 import { Stack, IconButton, Input } from '@chakra-ui/react';
+import { useQueryContext } from '../../context';
 
-function SearchBox({ placeholder, setText}) {
-
+function SearchBox({ placeholder}) {
+const { setQuery } = useQueryContext();
 const [inputValue, setInputValue]=useState("")
     
 
@@ -12,7 +13,7 @@ const [inputValue, setInputValue]=useState("")
     };
     const handleSubmit= (e) => {
         e.preventDefault();
-        setText(inputValue);
+        setQuery(inputValue);
     };
     
     return (

@@ -2,9 +2,11 @@ import React from 'react';
 import Card from '../Card';
 import { Grid } from '@chakra-ui/react';
 import useSWR from 'swr';
+import { useQueryContext } from '../../context';
 
-const Cards = ({ query: search }) => {
+const Cards = () => {
 
+  const { query } = useQueryContext();
   const key = (query) => {
     if (query == "") {
       return `https://api.giphy.com/v1/gifs/trending?api_key=${process.env.REACT_APP_APIKEY}&limit=25&rating=g`;
@@ -13,7 +15,7 @@ const Cards = ({ query: search }) => {
     }
   }
 
-  const { data: { data } } = useSWR(key(search), { suspense: true });
+  const { data: { data } } = useSWR(key(query), { suspense: true });
 
   return (
 

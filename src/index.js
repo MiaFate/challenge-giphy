@@ -11,6 +11,7 @@ import { Box, ChakraProvider, Flex } from '@chakra-ui/react';
 import { ColorModeScript } from '@chakra-ui/react'
 import theme from './theme'
 import { ErrorBoundary } from 'react-error-boundary';
+import { QueryProvider } from './context';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -25,22 +26,24 @@ const ErrorFallback = () => {
 root.render(
   <ChakraProvider theme={theme} tab="home">
     <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-    <Suspense fallback={<Loader />}>
-      <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <BrowserRouter>
-          <Box  >
-            <Routes>
-              <Route exact path="/" element={<Login />} />
-              <Route path="/home" element={<App />} />
-              <Route
-                path={`/detail/:id`}
-                element={<Detail />}
-              />
-            </Routes>
-          </Box>
-        </BrowserRouter>
-      </ErrorBoundary>
-    </Suspense>
+    <QueryProvider>
+      <Suspense fallback={<Loader />}>
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          <BrowserRouter>
+            <Box  >
+              <Routes>
+                <Route exact path="/" element={<Login />} />
+                <Route path="/home" element={<App />} />
+                <Route
+                  path={`/detail/:id`}
+                  element={<Detail />}
+                />
+              </Routes>
+            </Box>
+          </BrowserRouter>
+        </ErrorBoundary>
+      </Suspense>
+    </QueryProvider>
   </ChakraProvider>
 );
 

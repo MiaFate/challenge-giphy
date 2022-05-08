@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import SearchBox from "./components/SearchBox";
 const Cards = lazy(() => import("./components/Cards"));
 import Loader from "./components/Loader";
@@ -9,7 +9,6 @@ import { SWRConfig } from "swr";
 
 
 function App() {
-  const [text, setText] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,7 +32,7 @@ function App() {
   return (
     <>
       <h1>Giphy Challenge ADV JS Study Group</h1>
-      <SearchBox placeholder={"Search GIPHY"} setText={setText} />
+      <SearchBox placeholder={"Search GIPHY"} />
       <Flex direction='column' align='center'>
         <ErrorBoundary FallbackComponent={ErrorFallback}>
           <Suspense fallback={<Loader />}>
@@ -50,7 +49,7 @@ function App() {
               }}
             >
             {console.log("app")}
-              <Cards query={text} />
+              <Cards />
             </SWRConfig>
           </Suspense>
         </ErrorBoundary>
