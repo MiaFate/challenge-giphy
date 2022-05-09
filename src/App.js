@@ -6,19 +6,21 @@ import { Flex } from '@chakra-ui/react';
 import { useNavigate } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 import { SWRConfig } from "swr";
-
+//import { useGlobalContext } from './context';
+import Cookies from "universal-cookie";
 
 function App() {
   const navigate = useNavigate();
-
+  //const { logged } = useGlobalContext();
+  const cookies = new Cookies();
+  const isLogged = cookies.get("logged");
   useEffect(() => {
-    if (localStorage.getItem("logged") === "true") {
-      console.log("loguea3")
-      //initialSearch();
-    } else {
+  if (isLogged==="false" || isLogged==undefined) {
+      //console.log("loguea3")
       navigate("/");
-    }
-  }, []);
+      //initialSearch();
+    } 
+  });
 
   const ErrorFallback = ({ error }) => {
     console.log(error)
@@ -48,7 +50,7 @@ function App() {
                   }),
               }}
             >
-            {console.log("app")}
+              {console.log("app")}
               <Cards />
             </SWRConfig>
           </Suspense>

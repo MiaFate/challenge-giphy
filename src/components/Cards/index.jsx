@@ -2,11 +2,12 @@ import React from 'react';
 import Card from '../Card';
 import { Grid } from '@chakra-ui/react';
 import useSWR from 'swr';
-import { useQueryContext } from '../../context';
+import { useGlobalContext } from '../../context';
+import uuid from 'react-uuid';
 
 const Cards = () => {
 
-  const { query } = useQueryContext();
+  const { query } = useGlobalContext();
   const key = (query) => {
     if (query == "") {
       return `https://api.giphy.com/v1/gifs/trending?api_key=${process.env.REACT_APP_APIKEY}&limit=25&rating=g`;
@@ -21,7 +22,7 @@ const Cards = () => {
 
     <Grid templateColumns='repeat(4, 1fr)' gap={3} id="cards" ml={'2rem'} mr={'2rem'}>
       {data.map(gif => (
-        <Card gif={gif} key={gif.id} />
+        <Card gif={gif} key={ uuid() } />
       ))}
     </Grid>
   )

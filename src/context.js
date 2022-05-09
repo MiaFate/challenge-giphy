@@ -1,21 +1,25 @@
 import { createContext, useContext, useState } from "react";
 
-const initialQueryValue = {
+const initialGlobalValue = {
     query: "",
+    logged: false,
 }
 
-export const queryContext = createContext(initialQueryValue);
-export const useQueryContext= () => useContext(queryContext);
+export const globalContext = createContext(initialGlobalValue);
+export const useGlobalContext= () => useContext(globalContext);
 
-export const QueryProvider = ({ children }) => {
-    const [query, setQuery] = useState(initialQueryValue.query);
+export const GlobalProvider = ({ children }) => {
+    const [query, setQuery] = useState(initialGlobalValue.query);
+    const [logged, setLogged] = useState(initialGlobalValue.logged);
     console.log(query)
     return (
-        <queryContext.Provider value={{
+        <globalContext.Provider value={{
             query,
             setQuery,
+            logged,
+            setLogged
         }}>
             {children}
-        </queryContext.Provider>
+        </globalContext.Provider>
     )
 }

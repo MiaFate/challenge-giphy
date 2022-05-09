@@ -1,9 +1,9 @@
 import React,{useState} from 'react';
 import { Stack, IconButton, Input } from '@chakra-ui/react';
-import { useQueryContext } from '../../context';
+import { useGlobalContext } from '../../context';
 
 function SearchBox({ placeholder}) {
-const { setQuery } = useQueryContext();
+const { setQuery } = useGlobalContext();
 const [inputValue, setInputValue]=useState("")
     
 

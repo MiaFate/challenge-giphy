@@ -11,7 +11,7 @@ import { Box, ChakraProvider, Flex } from '@chakra-ui/react';
 import { ColorModeScript } from '@chakra-ui/react'
 import theme from './theme'
 import { ErrorBoundary } from 'react-error-boundary';
-import { QueryProvider } from './context';
+import { GlobalProvider } from './context';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -26,7 +26,7 @@ const ErrorFallback = () => {
 root.render(
   <ChakraProvider theme={theme} tab="home">
     <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-    <QueryProvider>
+    <GlobalProvider>
       <Suspense fallback={<Loader />}>
         <ErrorBoundary FallbackComponent={ErrorFallback}>
           <BrowserRouter>
@@ -43,7 +43,7 @@ root.render(
           </BrowserRouter>
         </ErrorBoundary>
       </Suspense>
-    </QueryProvider>
+    </GlobalProvider>
   </ChakraProvider>
 );
 
